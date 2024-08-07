@@ -1,0 +1,104 @@
+﻿@model Jay_Mail_Mvc.Dto.EmailDto
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<section>
+
+    <div class="row bg-white border-rounded" id="form-container" row>
+
+        <form class="m-auto" asp-action="Index" method="post"  enctype="multipart/form-data">
+            <ul class="border border-primary">
+                <strong>Note</strong>
+                <li class="text-warning">
+                    <small>send same message to multiple email address</small>
+                </li>
+                <li class="text-info">
+                    <small>seperate each emails with empty space e.g (gmail.com gmail.com)</small>
+                </li>
+                <li class="text-secondary ">
+                    <small>send mail To your customers today with beautiful made template </small>
+                </li>
+            </ul>
+
+            @if (((bool?)TempData["message"]) == true)
+            {
+                <div class="alert alert-dismissible alert-success">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Congratulation!</strong> sent
+                </div>
+            }
+            else if (((bool?)TempData["message"]) == false)
+            {
+                <div class="alert alert-dismissible alert-danger">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Error!</strong> not sent
+                </div>
+            }
+            else{}
+
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+
+            </div>
+
+            <div >
+                <div class="form-group">
+                    <div class="input-group mb-">
+                        <button class="btn btn-dark" type="button" id="button-addon2">
+                            <i class="fa-solid fa-user">subject</i>
+                        </button>
+                        <input type="text" class="form-control" placeholder="E.g Jogn Doe" aria-label="Recipient's username" aria-describedby="button-addon2" asp-for="Subject" >
+                    </div>
+                    <span asp-validation-for="Subject" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-3">
+                    <div class="input-group mb-">
+                        <button class="btn btn-dark" type="button" id="button-addon2">
+                            <i class="fa-solid fa-user">Email</i>
+                        </button>
+                        <input type="text" class="form-control" placeholder="E.g Jogn Doe" aria-label="Recipient's username" aria-describedby="button-addon2" asp-for="Email">
+                    </div>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mt-2">
+                    <label for="exampleFormControlTextarea1" class="form-label">Message Box</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your message here" asp-for="Body" ></textarea>
+                </div>
+                <div class="form-group mt-3">
+                    <div class="input-group mb-">
+                        <button class="btn btn-dark" type="button" id="button-addon2">
+                            <i class="fa-solid fa-user">File</i>
+                        </button>
+                        <input type="file" name="file" class="form-control" placeholder="E.g Jogn Doe" aria-label="upload file" aria-describedby="button-addon2" asp-for="FilePath">
+                    </div>
+                    <span asp-validation-for="FilePath" class="text-danger"></span>
+                </div>
+                <span asp-validation-for="Body" class="text-danger"></span>
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn btn-dark py-2">Send</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="m-auto">
+            <p class="text-center">
+                formal coding instructor and currently do freelancing job i involve in the full lifecycle development of your Web app my focus are:
+            </p>
+            <ul class="m-auto" style="width: 100%; justify-self: center;">
+                <li>To demonstrating strong project management</li>
+                <li>saving client extra cost at feature using api for backend development</li>
+                <li>Strong Code architecture for easy future mentainance</li>
+            </ul>
+
+            <img align="right" alt="Coding" width="400" src="https://i.pinimg.com/550x/54/e3/7d/54e37d8074ebcde1d96c77d7b2a7f310.jpg" />
+
+        </div>
+
+    </div>
+</section>
+
+<script>
+
+</script>

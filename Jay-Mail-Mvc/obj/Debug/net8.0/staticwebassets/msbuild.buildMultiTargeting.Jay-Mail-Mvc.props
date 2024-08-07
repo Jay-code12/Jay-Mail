@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Jay-Mail-Mvc.props" />
+</Project>
